@@ -48,7 +48,8 @@ fun MainScreen() {
         ) {
             Show(
                 words = viewModel.words,
-                onNavigateBack = { navController.popBackStack() }
+                onNavigateBack = { navController.popBackStack() },
+                onDeleteWord = { word -> viewModel.remove(word) }
             )
         }
     }

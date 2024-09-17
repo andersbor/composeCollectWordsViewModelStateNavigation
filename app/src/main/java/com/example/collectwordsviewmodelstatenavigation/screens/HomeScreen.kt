@@ -81,7 +81,7 @@ fun CollectWords(
     var word by remember { mutableStateOf("") }
     var showList by remember { mutableStateOf(true) }
 
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(10.dp)) {
         OutlinedTextField(
             value = word,
             onValueChange = { word = it },

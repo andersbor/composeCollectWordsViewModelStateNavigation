@@ -15,12 +15,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Show(words: List<String>, onNavigateBack: () -> Unit) {
+fun Show(words: List<String>, onNavigateBack: () -> Unit, onDeleteWord: (String) -> Unit) {
     Scaffold { innerPadding ->
         WordsList(
             words = words,
             onNavigateBack = onNavigateBack,
-            modifier = Modifier.padding(innerPadding)
+            modifier = Modifier.padding(innerPadding),
+            onDeleteWord = onDeleteWord
         )
     }
 }
@@ -29,7 +30,8 @@ fun Show(words: List<String>, onNavigateBack: () -> Unit) {
 fun WordsList(
     words: List<String>,
     modifier: Modifier,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onDeleteWord: (String) -> Unit
 ) {
     Column(modifier = modifier) {
         Button(
@@ -45,7 +47,7 @@ fun WordsList(
         } else {
             LazyColumn {
                 items(words) { word ->
-                    Card(
+                    Card(onClick = { onDeleteWord(word) },
                         modifier = Modifier
                             .padding(5.dp)
                             .fillMaxWidth()
@@ -61,5 +63,5 @@ fun WordsList(
 @Preview
 @Composable
 fun ShowPreview() {
-    Show(words = listOf("Hello", "World"), onNavigateBack = {})
+    Show(words = listOf("Hello", "World"), onNavigateBack = {}, onDeleteWord = {})
 }
