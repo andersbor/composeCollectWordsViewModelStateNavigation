@@ -4,6 +4,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -20,8 +24,8 @@ fun Show(words: List<String>, onNavigateBack: () -> Unit, onDeleteWord: (String)
         WordsList(
             words = words,
             onNavigateBack = onNavigateBack,
+            onDeleteWord = onDeleteWord,
             modifier = Modifier.padding(innerPadding),
-            onDeleteWord = onDeleteWord
         )
     }
 }
@@ -45,7 +49,7 @@ fun WordsList(
         if (words.isEmpty()) {
             Text("No words to show")
         } else {
-            LazyColumn {
+            LazyColumn  {
                 items(words) { word ->
                     Card(onClick = { onDeleteWord(word) },
                         modifier = Modifier
@@ -63,5 +67,5 @@ fun WordsList(
 @Preview
 @Composable
 fun ShowPreview() {
-    Show(words = listOf("Hello", "World"), onNavigateBack = {}, onDeleteWord = {})
+    Show(words = listOf("Hello", "World", "A", "B", "C"), onNavigateBack = {}, onDeleteWord = {})
 }
