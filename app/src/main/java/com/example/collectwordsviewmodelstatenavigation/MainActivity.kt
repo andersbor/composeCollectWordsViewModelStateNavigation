@@ -30,6 +30,8 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     val navController = rememberNavController()
     val viewModel: WordsViewModelState = viewModel()
+    // add to gradle file
+    // https://developer.android.com/develop/ui/compose/libraries#viewmodel
 
     NavHost(navController = navController, startDestination = NavRoutes.Home.route) {
         composable(NavRoutes.Home.route) {
