@@ -96,6 +96,7 @@ fun CollectWords(
         ) {
             Button(onClick = {
                 onAddWord(word)
+                word = ""
                 // viewModel.onAddWord(word)
             }) {
                 Text("Add")
