@@ -10,8 +10,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.collectwordsviewmodelstatenavigation.screens.Home
-import com.example.collectwordsviewmodelstatenavigation.screens.Show
+import com.example.collectwordsviewmodelstatenavigation.screens.HomeScreen
+import com.example.collectwordsviewmodelstatenavigation.screens.ShowScreen
 import com.example.collectwordsviewmodelstatenavigation.ui.theme.CollectWordsViewModelStateNavigationTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,9 +33,10 @@ fun MainScreen(viewModel: WordsViewModelState = viewModel()) {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = NavRoutes.Home.route) {
+    NavHost(navController = navController,
+        startDestination = NavRoutes.Home.route) {
         composable(NavRoutes.Home.route) {
-            Home(
+            HomeScreen(
                 words = viewModel.words,
                 onAddWord = { word -> viewModel.add(word) },
                 onRemoveWord = { word -> viewModel.remove(word) },
@@ -48,7 +49,7 @@ fun MainScreen(viewModel: WordsViewModelState = viewModel()) {
             NavRoutes.Show.route
             // animations https://developer.android.com/develop/ui/compose/animation/composables-modifiers#animatedcontent
         ) {
-            Show(
+            ShowScreen(
                 words = viewModel.words,
                 onNavigateBack = { navController.popBackStack() },
                 onDeleteWord = { word -> viewModel.remove(word) }

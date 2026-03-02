@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Show(words: List<String>, onNavigateBack: () -> Unit, onDeleteWord: (String) -> Unit) {
+fun ShowScreen(words: List<String>, onNavigateBack: () -> Unit, onDeleteWord: (String) -> Unit) {
     Scaffold { innerPadding ->
         WordsList(
             words = words,
@@ -62,6 +62,6 @@ fun WordsList(
 
 @Preview
 @Composable
-fun ShowPreview() {
-    Show(words = listOf("Hello", "World", "A", "B", "C"), onNavigateBack = {}, onDeleteWord = {})
+fun ShowScreenPreview() {
+    ShowScreen(words = listOf("Hello", "World", "A", "B", "C"), onNavigateBack = {}, onDeleteWord = {})
 }

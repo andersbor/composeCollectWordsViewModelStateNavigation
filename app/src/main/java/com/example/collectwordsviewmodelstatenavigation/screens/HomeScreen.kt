@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(
+fun HomeScreen(
     modifier: Modifier = Modifier,
     words: List<String>,
     onAddWord: (String) -> Unit,
@@ -75,7 +75,7 @@ fun CollectWords(
     onClearList: () -> Unit,
     onShowList: () -> Unit = {}
 ) {
-    // Add to gradle file  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
+    // Add to Gradle file  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
     // https://tigeroakes.com/posts/mutablestateof-list-vs-mutablestatelistof/
     // val words = viewModel.words
     var word by remember { mutableStateOf("") }
@@ -137,7 +137,7 @@ fun CollectWords(
 @Preview(showBackground = true)
 @Composable
 fun CollectWordsPreview() {
-    Home(
+    HomeScreen(
         words = listOf("Hello", "World"),
         onAddWord = {},
         onRemoveWord = {},
